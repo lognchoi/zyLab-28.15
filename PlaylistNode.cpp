@@ -2,13 +2,6 @@
 #include "PlaylistNode.h"
 using namespace std;
 
-PlaylistNode::PlaylistNode(){
-   uniqueID="none";
-   songName="none";
-   artistName="none";
-   songLength=0;
-   nextNodePtr=nullptr;
-}
 PlaylistNode::PlaylistNode(string ID, string name, string artist, int length,PlaylistNode* next){
    uniqueID=ID;
    songName=name;
@@ -30,7 +23,6 @@ void PlaylistNode::PrintPlaylistNode(){
    cout<<"Artist Name: "<<artistName<<endl;
    cout<<"Song Length (in seconds): "<<songLength<<endl;
 }
-
 
 string PlaylistNode::GetID(){
    return uniqueID;
