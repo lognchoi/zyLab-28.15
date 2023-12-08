@@ -208,13 +208,19 @@ PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headN
 
             if (!headNode) {
                 cout << "Playlist is empty" << endl;
-            } else {
+            } 
+            else if(headNode->GetNext()==nullptr){
+               cout << 1 << "." << endl;
+                 headNode->PrintPlaylistNode();
+            }
+            else {
                 PlaylistNode* current = headNode;
                 int position = 1;
 
-                while (current) {
+                while (current!=nullptr) {
                     cout << position << "." << endl;
                     current->PrintPlaylistNode();
+                     if(current->GetNext()!=nullptr) cout<<endl;
                     current = current->GetNext();
                     position++;
                 }
