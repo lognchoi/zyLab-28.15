@@ -30,7 +30,7 @@ PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headN
             int songLength;
 
             cout << "Enter song's unique ID:" << endl;
-            cin.ignore(); // Clear the newline character from the input buffer
+
             getline(cin, uniqueID);
 
             cout << "Enter song's name:" << endl;
@@ -45,8 +45,14 @@ PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headN
             PlaylistNode* newNode = new PlaylistNode(uniqueID, songName, artistName, songLength);
             if (!headNode) {
                 headNode = newNode;
-            } else {
-                headNode->InsertAfter(newNode);
+            } else {      
+                PlaylistNode* current = headNode;
+                while (current->GetNext() != nullptr) {
+                    current = current->GetNext();
+                }
+            
+                // Insert the new node after the last node.
+                current->InsertAfter(newNode);
             }
             break;
         }
